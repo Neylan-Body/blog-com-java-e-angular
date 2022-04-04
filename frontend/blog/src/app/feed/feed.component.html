@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row mt-5 mb-5">
+        <div class="col-md-4">
+            <div class="card border-0" style="width: 18rem;">
+                <div class="d-flex justify-content-center">
+                    <img src="https://avatars.githubusercontent.com/u/56409771?v=4"
+                        class="card-img-top rounded-circle h-60 mt-2" alt="Neylan Oliveira">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-center">Neylan Oliveira dos Santos</h5>
+                    <p class="card-text">Backend Developer.</p>
+                    <a href="https://github.com/Neylan-Body" target="_blank" class="btn btn-outline-dark d-flex justify-content-center">Github</a>
+                    <hr class="mt-4 mb-4">
+                    <h6 class="mb-3 text-monospace text-center">Find by name</h6>
+                    <input type="text" class="form-control mb-3 w-100">
+                    <button class="btn btn-outline-warning w-100" (click)='findByName()'>Find</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="form-comments">
+                <h3 class="text-center mb-4 text-monospace">Type your comments below:</h3>
+                <div class="form-group">
+                    <label class="text-monospace" for="name">Name:</label>
+                    <input class="form-control" name="name" type="text" id="name" placeholder="Type your name" [(ngModel)]='post.name'>
+                </div>
+                <div class="form-group">
+                    <label class="text-monospace" for="message">Message:</label>
+                    <textarea class="form-control" name="message" id="message" placeholder="Type your message" cols="30" rows="4" [(ngModel)]='post.message'></textarea>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-outline-info w-25" (click)='createPost()'>Publish</button>
+                </div>
+            </div>
+            <hr class="mt-5 mb-5">
+            <h3 class="text-center mb-5 text-monospace">Added comments</h3>
+            <div class="container">
+                <div class="card mb-4" *ngFor="let post of listPost">
+                    <div class="card-header">
+                        <h5 class="card-title">{{post.id}}</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{post.name}}</p>
+                        <p class="card-text">{{post.message}}</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

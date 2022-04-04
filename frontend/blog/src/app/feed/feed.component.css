@@ -1,0 +1,9 @@
+img {
+    max-width: 260px;
+    height: 260px;
+    object-fit: cover;
+}
+
+.form-comments > div {
+    margin-top: 5%;
+}
