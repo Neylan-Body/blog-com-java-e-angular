@@ -9,6 +9,7 @@ import { Post } from '../model/Post';
 })
 export class PostService {
 
+  post: Post = new Post
   postsUrl = 'http://localhost:3000/posts/'
 
   constructor(
@@ -20,5 +21,18 @@ export class PostService {
 
   postPost(post: Post) {
     return this.http.post<Post>(this.postsUrl, post)
+  }
+
+  getPostByName(name: string): Post {
+    this.getPosts().subscribe(
+      results => {
+        for (let i = 0; i < results.length; i++) {
+          if (results[i].name == name) {
+            this.post = results[i]
+          }
+        }
+      }
+    );
+    return this.post
   }
 }

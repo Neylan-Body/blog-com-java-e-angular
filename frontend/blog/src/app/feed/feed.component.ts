@@ -11,11 +11,12 @@ export class FeedComponent implements OnInit {
 
   listPost: Post[];
   post: Post = new Post;
+  name: string;
 
   constructor(private postService: PostService) { }
 
   ngOnInit(): void {
-    this.findPosts();
+    // this.findPosts();
   }
 
   // findPosts(){
@@ -27,7 +28,6 @@ export class FeedComponent implements OnInit {
   findPosts() {
     this.postService.getPosts().subscribe(
       data => {
-        console.log(data);
         this.listPost = data}
     );
   }
@@ -41,5 +41,8 @@ export class FeedComponent implements OnInit {
     )
   }
 
-  findByName(){}
+  findByName(){    
+    this.listPost = []
+    this.listPost.push(this.postService.getPostByName(this.name))
+  }
 }
